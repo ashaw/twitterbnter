@@ -26,7 +26,7 @@ module TwitterBnter
     def submit
       self.build_bnter_hash
       bnter = @access_token.post "/api/v1/conversations/create.json?#{@bnter_hash.to_params}"
-      p bnter.to_s, bnter.body.to_s
+      JSON.parse(bnter.body.to_s)
     end
   end
 end

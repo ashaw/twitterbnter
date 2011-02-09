@@ -56,6 +56,16 @@ post '/bntify' do
   twitter.run
   p twitter.convo
   if twitter.convo.length > 1
-    TwitterBnter::Bntify.new(session[:token], session[:secret], twitter.convo).submit
+    @payload = TwitterBnter::Bntify.new(session[:token], session[:secret], twitter.convo).submit
+  else
+    @payload = {"status" => "Not a conversation"}
   end
+    erb <<-HTML
+      <% if @payload['status'] == "success" %>
+        <h1>Successfully Bntified!</h1>
+          <h2><a href="http://bnter.com/convo/<%= @payload['conversation_id'] %>">Visit Bnter <%= @payload['conversation_id'] %></a></h2>
+      <% else %>
+        <h1>Error: <%= @payload['status'] %>
+      <% end %>
+    HTML
 end
