@@ -1,1 +1,1 @@
-This doesn't work yet
+Post Twitter conversations on Bnter. Because that should really be part of Bnter.com.
