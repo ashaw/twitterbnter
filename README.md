@@ -1,1 +1,1 @@
-Post Twitter conversations on Bnter. Because that should really be part of Bnter.com.
+Post Twitter conversations on Bnter. Because that feature should really be part of Bnter.com. Use it: [http://twitterbnter.shhhaw.com](http://twitterbnter.shhhaw.com).
