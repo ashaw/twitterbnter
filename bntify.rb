@@ -3,6 +3,7 @@ module TwitterBnter
     def initialize(access,secret,convo)
       #bnter only allows 3 messages so far
       @convo = convo.length > 2 ? convo[-3,3] : convo
+      @convo.reverse!
       
       @consumer = OAuth::Consumer.new(TwitterBnter::Authorize::CONSUMER_KEY,TwitterBnter::Authorize::CONSUMER_SECRET, {
              :site               => "http://bnter.com",
@@ -18,7 +19,9 @@ module TwitterBnter
       @convo.each_with_index do |item,idx|
         msg_idx = idx + 1
         @bnter_hash["message_#{msg_idx}"] = item[:status]
+        @bnter_hash["message_#{msg_idx}_author_twitter_screen_name"] = item[:user]
         @bnter_hash["message_#{msg_idx}_author"] = item[:user]
+        
       end
       @bnter_hash
     end

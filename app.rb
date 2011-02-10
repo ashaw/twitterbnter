@@ -27,9 +27,9 @@ get '/' do
 
   # at this point they're logged in. let's do this
   erb <<-HTML
-    <h1>Bntify this tweet</h1>
+    <h1>Bntify a conversation ending with this Tweet ID or URL</h1>
     <form method="post" action="/bntify">
-      <input type="text" name="tweet">
+      <input type="text" name="tweet" style="width:600px;height:30px;font-size:22px">
       <input type="submit">
     </form>
   HTML
